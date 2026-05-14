@@ -140,8 +140,10 @@ function CreateReservationModal({
                         onClick={onClose}
                         className="
                             text-slate-400
-                            hover:text-slate-600
+                            cursor-pointer
                             transition
+                            hover:text-slate-700
+                            hover:scale-110
                         "
                     >
                         ✕
@@ -179,7 +181,13 @@ function CreateReservationModal({
                                     px-4
                                     py-3
                                     outline-none
-                                    focus:border-slate-400
+                                    cursor-pointer
+                                    transition
+                                    hover:border-slate-300
+                                    hover:bg-slate-50
+                                    focus:border-blue-400
+                                    focus:ring-1
+                                    focus:ring-blue-200
                                 "
                             >
                                 <option>
@@ -217,7 +225,13 @@ function CreateReservationModal({
                                     px-4
                                     py-3
                                     outline-none
-                                    focus:border-slate-400
+                                    cursor-pointer
+                                    transition
+                                    hover:border-slate-300
+                                    hover:bg-slate-50
+                                    focus:border-blue-400
+                                    focus:ring-1
+                                    focus:ring-blue-200
                                 "
                             >
                                 <option>
@@ -258,7 +272,13 @@ function CreateReservationModal({
                                     px-4
                                     py-3
                                     outline-none
-                                    focus:border-slate-400
+                                    cursor-pointer
+                                    transition
+                                    hover:border-slate-300
+                                    hover:bg-slate-50
+                                    focus:border-blue-400
+                                    focus:ring-1
+                                    focus:ring-blue-200
                                 "
                             />
 
@@ -284,7 +304,13 @@ function CreateReservationModal({
                                     px-4
                                     py-3
                                     outline-none
-                                    focus:border-slate-400
+                                    cursor-pointer
+                                    transition
+                                    hover:border-slate-300
+                                    hover:bg-slate-50
+                                    focus:border-blue-400
+                                    focus:ring-1
+                                    focus:ring-blue-200
                                 "
                             />
 
@@ -310,7 +336,13 @@ function CreateReservationModal({
                                     px-4
                                     py-3
                                     outline-none
-                                    focus:border-slate-400
+                                    cursor-pointer
+                                    transition
+                                    hover:border-slate-300
+                                    hover:bg-slate-50
+                                    focus:border-blue-400
+                                    focus:ring-1
+                                    focus:ring-blue-200
                                 "
                             />
 
@@ -330,9 +362,12 @@ function CreateReservationModal({
                             py-4
                             rounded-2xl
                             font-medium
-                            hover:opacity-90
+                            cursor-pointer
                             transition
+                            hover:opacity-90
+                            hover:shadow-lg
                             disabled:opacity-50
+                            disabled:cursor-not-allowed
                         "
                     >
 

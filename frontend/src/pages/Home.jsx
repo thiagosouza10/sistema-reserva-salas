@@ -214,8 +214,10 @@ function Home() {
                         py-3
                         rounded-2xl
                         font-medium
-                        hover:opacity-90
+                        cursor-pointer
                         transition
+                        hover:opacity-90
+                        hover:shadow-lg
                     "
                 >
                     Nova Reserva

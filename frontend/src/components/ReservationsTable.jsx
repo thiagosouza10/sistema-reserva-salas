@@ -224,8 +224,11 @@ function ReservationsTable({
                                             flex
                                             items-center
                                             justify-center
-                                            hover:opacity-90
+                                            cursor-pointer
                                             transition
+                                            hover:opacity-90
+                                            hover:shadow-md
+                                            hover:-translate-y-0.5
                                         "
                                     >
 
@@ -248,8 +251,11 @@ function ReservationsTable({
                                             flex
                                             items-center
                                             justify-center
-                                            hover:opacity-90
+                                            cursor-pointer
                                             transition
+                                            hover:opacity-90
+                                            hover:shadow-md
+                                            hover:-translate-y-0.5
                                         "
                                     >
 
