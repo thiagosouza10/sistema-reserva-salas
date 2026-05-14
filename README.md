@@ -121,6 +121,25 @@ npm run dev
 
 # Configuração Backend
 
+# Criar Banco de Dados no PostgreSQL
+
+Antes de configurar o projeto, você precisa criar o banco de dados local.
+
+## Opção — via pgAdmin
+
+1. Abra o pgAdmin
+2. Conecte no servidor local
+3. Clique com botão direito em **Databases**
+4. Clique em **Create → Database**
+5. Nome: `reserva_salas`
+6. Salve
+
+## Observação
+
+* Porta padrão: `5432`
+* Esse banco será usado pelo Prisma ORM
+* O nome deve ser exatamente igual ao usado no `.env`
+
 Entrar na pasta:
 
 ```bash
@@ -128,16 +147,6 @@ cd backend
 ```
 
 ---
-
-# Criar Banco de Dados
-
-Abra o PostgreSQL.
-
-Crie um banco chamado:
-
-```txt
-reserva_salas
-```
 
 ---
 
@@ -258,9 +267,11 @@ http://localhost:3333/api-docs
 
 ---
 
+---
+
 # Regras de Negócio Implementadas
 
-* Pasta: ./requisitos
+* Pasta: /requisitos
 
 ---
 
@@ -289,4 +300,4 @@ http://localhost:3333/api-docs
 
 # Autor
 
-Thiago de Souza
+Thiago de Souzas
