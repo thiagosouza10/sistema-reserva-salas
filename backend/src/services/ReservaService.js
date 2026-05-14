@@ -1,5 +1,5 @@
 const prisma = require('../database/prisma');
-const validateReserva = require('../validators/reservaValidator');
+const validateReserva = require('../validators/reserva');
 
 class ReservaService {
     async create(data) {
