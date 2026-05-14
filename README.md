@@ -300,4 +300,4 @@ http://localhost:3333/api-docs
 
 # Autor
 
-Thiago de Souzas
+Thiago de Souza
