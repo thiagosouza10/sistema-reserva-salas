@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Reserva {
+  id            String   @id @default(uuid())
+  sala          String
+  responsavel   String
+  data          String
+  horaInicio    String
+  horaFim       String
+  participantes String[]
+  status        String   @default("ATIVA")
+  createdAt     DateTime @default(now())
+}

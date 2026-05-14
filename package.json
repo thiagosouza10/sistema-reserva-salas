@@ -1,0 +1,21 @@
+{
+  "name": "reserva-salas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
