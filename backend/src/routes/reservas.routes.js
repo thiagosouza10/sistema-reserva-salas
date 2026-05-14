@@ -46,15 +46,32 @@ reservasRoutes.post('/', ReservaController.create);
 
 /**
  * @swagger
- * /reservas:
+ * /reservas/options:
  *   get:
- *     summary: Listar reservas
+ *     summary: Retorna listas únicas de salas e responsáveis
  *     tags:
  *       - Reservas
  *     responses:
  *       200:
- *         description: Lista de reservas
+ *         description: Lista de opções disponíveis
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 salas:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 responsaveis:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *       500:
+ *         description: Erro interno do servidor
  */
+reservasRoutes.get('/options', ReservaController.options);
+
 
 /**
  * @swagger

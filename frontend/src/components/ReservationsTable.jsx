@@ -7,7 +7,8 @@ function ReservationsTable({
     reservas,
     loading,
     onEdit,
-    onDelete
+    onDelete,
+    readOnly
 }) {
 
     if (loading) {
@@ -103,15 +104,17 @@ function ReservationsTable({
                             Status
                         </th>
 
-                        <th
-                            className="
-                                text-left
-                                p-5
-                                text-slate-500
-                            "
-                        >
-                            Ações
-                        </th>
+                        {!readOnly && (
+                            <th
+                                className="
+                                    text-left
+                                    p-5
+                                    text-slate-500
+                                "
+                            >
+                                Ações
+                            </th>
+                        )}
 
                     </tr>
 
@@ -124,7 +127,7 @@ function ReservationsTable({
                             <tr>
 
                                 <td
-                                    colSpan="6"
+                                    colSpan={readOnly ? "5" : "6"}
                                     className="
                                         text-center
                                         py-10
@@ -207,65 +210,67 @@ function ReservationsTable({
 
                             </td>
 
-                            <td className="p-5">
+                            {!readOnly && (
+                                <td className="p-5">
 
-                                <div className="flex gap-3">
+                                    <div className="flex gap-3">
 
-                                    <button
-                                        onClick={() =>
-                                            onEdit(reserva)
-                                        }
-                                        className="
-                                            w-10
-                                            h-10
-                                            rounded-xl
-                                            bg-slate-900
-                                            text-white
-                                            flex
-                                            items-center
-                                            justify-center
-                                            cursor-pointer
-                                            transition
-                                            hover:opacity-90
-                                            hover:shadow-md
-                                            hover:-translate-y-0.5
-                                        "
-                                    >
+                                        <button
+                                            onClick={() =>
+                                                onEdit(reserva)
+                                            }
+                                            className="
+                                                w-10
+                                                h-10
+                                                rounded-xl
+                                                bg-slate-900
+                                                text-white
+                                                flex
+                                                items-center
+                                                justify-center
+                                                cursor-pointer
+                                                transition
+                                                hover:opacity-90
+                                                hover:shadow-md
+                                                hover:-translate-y-0.5
+                                            "
+                                        >
 
-                                        <Pencil size={18} />
+                                            <Pencil size={18} />
 
-                                    </button>
+                                        </button>
 
-                                    <button
-                                        onClick={() =>
-                                            onDelete(
-                                                reserva.id
-                                            )
-                                        }
-                                        className="
-                                            w-10
-                                            h-10
-                                            rounded-xl
-                                            bg-red-500
-                                            text-white
-                                            flex
-                                            items-center
-                                            justify-center
-                                            cursor-pointer
-                                            transition
-                                            hover:opacity-90
-                                            hover:shadow-md
-                                            hover:-translate-y-0.5
-                                        "
-                                    >
+                                        <button
+                                            onClick={() =>
+                                                onDelete(
+                                                    reserva.id
+                                                )
+                                            }
+                                            className="
+                                                w-10
+                                                h-10
+                                                rounded-xl
+                                                bg-red-500
+                                                text-white
+                                                flex
+                                                items-center
+                                                justify-center
+                                                cursor-pointer
+                                                transition
+                                                hover:opacity-90
+                                                hover:shadow-md
+                                                hover:-translate-y-0.5
+                                            "
+                                        >
 
-                                        <Trash2 size={18} />
+                                            <Trash2 size={18} />
 
-                                    </button>
+                                        </button>
 
-                                </div>
+                                    </div>
 
-                            </td>
+                                </td>
+                            )}
 
                         </tr>
 

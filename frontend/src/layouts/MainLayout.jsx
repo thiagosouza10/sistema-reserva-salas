@@ -1,3 +1,5 @@
+import { Link, useLocation } from 'react-router-dom';
+
 import {
     LayoutDashboard,
     CalendarDays,
@@ -5,6 +7,9 @@ import {
 } from 'lucide-react';
 
 function MainLayout({ children }) {
+
+    const location = useLocation();
+
     return (
         <div className="min-h-screen bg-slate-100 flex">
 
@@ -32,43 +37,53 @@ function MainLayout({ children }) {
 
                 <nav className="space-y-2">
 
-                    <button
-                        className="
-              w-full
-              flex
-              items-center
-              gap-3
-              px-4
-              py-3
-              rounded-2xl
-              bg-slate-900
-              text-white
-              font-medium
-            "
+                    <Link
+                        to="/"
+                        className={`
+                            w-full
+                            flex
+                            items-center
+                            gap-3
+                            px-4
+                            py-3
+                            rounded-2xl
+                            font-medium
+                            transition
+                            cursor-pointer
+                            ${location.pathname === '/'
+                                ? 'bg-slate-900 text-white'
+                                : 'text-slate-600 hover:bg-slate-100'
+                            }
+                        `}
                     >
                         <LayoutDashboard size={20} />
 
                         Dashboard
-                    </button>
+                    </Link>
 
-                    <button
-                        className="
-              w-full
-              flex
-              items-center
-              gap-3
-              px-4
-              py-3
-              rounded-2xl
-              text-slate-600
-              hover:bg-slate-100
-              transition
-            "
+                    <Link
+                        to="/reservas"
+                        className={`
+                            w-full
+                            flex
+                            items-center
+                            gap-3
+                            px-4
+                            py-3
+                            rounded-2xl
+                            font-medium
+                            transition
+                            cursor-pointer
+                            ${location.pathname === '/reservas'
+                                ? 'bg-slate-900 text-white'
+                                : 'text-slate-600 hover:bg-slate-100'
+                            }
+                        `}
                     >
                         <CalendarDays size={20} />
 
                         Reservas
-                    </button>
+                    </Link>
 
                 </nav>
 
@@ -82,40 +97,43 @@ function MainLayout({ children }) {
 
                 <header
                     className="
-            bg-white
-            border
-            border-slate-200
-            rounded-3xl
-            p-6
-            mb-8
-            flex
-            items-center
-            justify-between
-          "
+                        bg-white
+                        border
+                        border-slate-200
+                        rounded-3xl
+                        p-6
+                        mb-8
+                        flex
+                        items-center
+                        justify-between
+                    "
                 >
 
                     <div>
                         <h2 className="text-3xl font-bold text-slate-800">
-                            Dashboard
+                            {location.pathname === '/' ? 'Dashboard' : 'Reservas'}
                         </h2>
 
                         <p className="text-slate-400 mt-1">
-                            Gerencie reservas de salas
+                            {location.pathname === '/'
+                                ? 'Gerencie reservas de salas'
+                                : 'Visualize e gerenie todas as reservas'
+                            }
                         </p>
                     </div>
 
                     <div
                         className="
-              w-12
-              h-12
-              rounded-full
-              bg-slate-900
-              text-white
-              flex
-              items-center
-              justify-center
-              font-bold
-            "
+                            w-12
+                            h-12
+                            rounded-full
+                            bg-slate-900
+                            text-white
+                            flex
+                            items-center
+                            justify-center
+                            font-bold
+                        "
                     >
                         T
                     </div>

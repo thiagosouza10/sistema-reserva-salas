@@ -211,7 +211,7 @@ class ReservaController {
                 }
             });
 
-            return response.status(200).json({
+            return response.status(204).json({
                 message:
                     'Reserva deletada com sucesso'
             });
@@ -226,9 +226,29 @@ class ReservaController {
     async index(request, response) {
         try {
 
+            const { sala, responsavel } = request.query;
+
+            // CONSTRUIR FILTRO
+            const where = {};
+
+            if (sala) {
+                where.sala = {
+                    contains: sala,
+                    mode: 'insensitive'
+                };
+            }
+
+            if (responsavel) {
+                where.responsavel = {
+                    contains: responsavel,
+                    mode: 'insensitive'
+                };
+            }
+
             // BUSCAR RESERVAS
             const reservas =
                 await prisma.reserva.findMany({
+                    where,
                     orderBy: {
                         createdAt: 'desc'
                     }
@@ -242,6 +262,33 @@ class ReservaController {
             return response.status(500).json({
                 message: error.message
             });
+        }
+    }
+
+    async options(request, response) {
+        try {
+            const reservas = await prisma.reserva.findMany({
+                select: {
+                    sala: true,
+                    responsavel: true
+                }
+            });
+
+            const salasSet = new Set();
+            const responsaveisSet = new Set();
+
+            reservas.forEach((r) => {
+                if (r.sala) salasSet.add(r.sala);
+                if (r.responsavel) responsaveisSet.add(r.responsavel);
+            });
+
+            return response.status(200).json({
+                salas: Array.from(salasSet),
+                responsaveis: Array.from(responsaveisSet)
+            });
+
+        } catch (error) {
+            return response.status(500).json({ message: error.message });
         }
     }
 
